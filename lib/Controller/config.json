@@ -1,0 +1,195 @@
+[
+  {
+    "repo": "core",
+    "branches": [
+      "master",
+      "stable10"
+    ]
+  },
+  {
+    "repo": "user_ldap"
+  },
+  {
+    "repo": "user_management"
+  },
+  {
+    "repo": "apps"
+  },
+  {
+    "repo": "android"
+  },
+  {
+    "repo": "client"
+  },
+  {
+    "repo": "ios"
+  },
+  {
+    "repo": "notes"
+  },
+  {
+    "repo": "music"
+  },
+  {
+    "repo": "maps"
+  },
+  {
+    "repo": "SMStorage"
+  },
+  {
+    "repo": "ios-library"
+  },
+  {
+    "repo": "android-library"
+  },
+  {
+    "repo": "notes-iOS-App"
+  },
+  {
+    "repo": "web_hooks"
+  },
+  {
+    "repo": "files_texteditor"
+  },
+  {
+    "repo": "search_lucene"
+  },
+  {
+    "repo": "tasks"
+  },
+  {
+    "repo": "pyocclient"
+  },
+  {
+    "repo": "activity"
+  },
+  {
+    "repo": "files_pdfviewer"
+  },
+  {
+    "repo": "firstrunwizard"
+  },
+  {
+    "repo": "updater"
+  },
+  {
+    "repo": "templateeditor"
+  },
+  {
+    "repo": "davclient.js"
+  },
+  {
+    "repo": "user_cas"
+  },
+  {
+    "repo": "files_antivirus"
+  },
+  {
+    "repo": "gallery"
+  },
+  {
+    "repo": "announcementcenter"
+  },
+  {
+    "repo": "impersonate"
+  },
+  {
+    "repo": "files_external_ftp"
+  },
+  {
+    "repo": "TarStreamer"
+  },
+  {
+    "repo": "notifications"
+  },
+  {
+    "repo": "calendar"
+  },
+  {
+    "repo": "files_videoplayer"
+  },
+  {
+    "repo": "contacts"
+  },
+  {
+    "repo": "richdocuments"
+  },
+  {
+    "repo": "branded_clients"
+  },
+  {
+    "repo": "files_primary_swift"
+  },
+  {
+    "repo": "OwncloudUniversal"
+  },
+  {
+    "repo": "user_ldap"
+  },
+  {
+    "repo": "moodle"
+  },
+  {
+    "repo": "configreport"
+  },
+  {
+    "repo": "oauth2"
+  },
+  {
+    "repo": "market"
+  },
+  {
+    "repo": "twofactor_totp"
+  },
+  {
+    "repo": "customgroups"
+  },
+  {
+    "repo": "files_paperhive"
+  },
+  {
+    "repo": "files_volatile"
+  },
+  {
+    "repo": "guests"
+  },
+  {
+    "repo": "files_external_dropbox"
+  },
+  {
+    "repo": "diagnostics"
+  },
+  {
+    "repo": "encryption_recovery"
+  },
+  {
+    "repo": "security"
+  },
+  {
+    "repo": "files_external_gdrive"
+  },
+  {
+    "repo": "twofactor_backup_codes"
+  },
+  {
+    "repo": "encryption"
+  },
+  {
+    "repo": "files_primary_s3"
+  },
+  {
+    "repo": "password_policy"
+  },
+  {
+    "repo": "ios-sdk"
+  },
+  {
+    "repo": "ios-app"
+  },
+  {
+    "repo": "files_external_s3"
+  },
+  {
+    "repo": "phoenix"
+  }
+]
