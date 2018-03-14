@@ -4,12 +4,18 @@ namespace OCA\QaDashboard;
 
 class RepoState {
 
+	private $hasDrone = false;
 	private $hasCodeCov = true;
 	private $hasTravis = true;
 
-	public function __construct($name, $branch) {
+	public function __construct($name, $branch, array $badges = null) {
 		$this->name = $name;
 		$this->branch = $branch;
+		if ($badges !== null) {
+			$this->hasDrone = isset($badges['drone']) ? $badges['drone'] : false;
+			$this->hasCodeCov = isset($badges['codecov']) ? $badges['codecov'] : true;
+			$this->hasTravis = isset($badges['travis']) ? $badges['travis'] : true;
+		}
 	}
 
 	public function getDisplayName() {
@@ -17,11 +23,14 @@ class RepoState {
 	}
 
 	public function getBuildStatusBadges() {
-		$status = [ [
-			// https://drone.owncloud.com/api/repos/owncloud/core/builds/latest?branch=stable10
-			'url' => "https://drone.owncloud.com/owncloud/{$this->name}",
-			'badge' => "https://drone.owncloud.com/api/badges/owncloud/{$this->name}/status.svg?branch={$this->branch}",
-			]];
+		$status = [];
+		if ($this->hasDrone) {
+			$status[] = [
+				// https://drone.owncloud.com/api/repos/owncloud/core/builds/latest?branch=stable10
+				'url' => "https://drone.owncloud.com/owncloud/{$this->name}",
+				'badge' => "https://drone.owncloud.com/api/badges/owncloud/{$this->name}/status.svg?branch={$this->branch}",
+			];
+		}
 
 		if ($this->hasTravis) {
 			$status[] = [
@@ -40,12 +49,29 @@ class RepoState {
 				'url' => "https://jenkins.owncloud.org/job/owncloud-core/job/core/job/{$this->branch}/",
 				'badge' => "https://jenkins.owncloud.org/buildStatus/icon?job=owncloud-core/core/{$this->branch}",
 			];
-		} else {
+		}
+		if ($this->name === 'client') {
+			$status[] = [
+				'url' => "https://jenkins.owncloud.org/job/owncloud-client/job/client/job/{$this->branch}/",
+				'badge' => "https://jenkins.owncloud.org/buildStatus/icon?job=owncloud-client/client/{$this->branch}",
+			];
+			$status[] = [
+				'url' => "https://ci.appveyor.com/project/ownclouders/ownclouduniversal/branch/{$this->branch}/",
+				'badge' => "https://ci.appveyor.com/api/projects/status/a1x3dslys7de6e21/branch/{$this->branch}?svg=true",
+			];
+		}
+		if ($this->name === 'OwncloudUniversal') {
+			$status[] = [
+				'url' => "https://ci.appveyor.com/project/DeepDiver1975/ownclouduniversal/branch/{$this->branch}/",
+				'badge' => "https://ci.appveyor.com/api/projects/status/rrsqmfv03gos8vmq/branch/{$this->branch}?svg=true",
+			];
+		}
+
+		while (count($status) < 4) {
 			$status[] = [
 				'url' => "",
 				'badge' => "",
 			];
-
 		}
 
 		return $status;

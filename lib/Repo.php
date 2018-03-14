@@ -4,10 +4,10 @@ namespace OCA\QaDashboard;
 
 class Repo {
 
-	public function __construct($name, array $branches = ['master']) {
+	public function __construct($name, array $branches = ['master'], array $badges = null) {
 		$this->name = $name;
-		$this->branches = array_map(function($branch) {
-			return new RepoState($this->name, $branch);
+		$this->branches = array_map(function($branch) use ($badges) {
+			return new RepoState($this->name, $branch, $badges);
 		}, $branches);
 	}
 

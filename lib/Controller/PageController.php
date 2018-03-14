@@ -41,6 +41,7 @@ class PageController extends Controller {
 		$policy->addAllowedImageDomain('https://codecov.io');
 		$policy->addAllowedImageDomain('https://travis-ci.org');
 		$policy->addAllowedImageDomain('https://*.travis-ci.org');
+		$policy->addAllowedImageDomain('https://ci.appveyor.com');
 		$template->setContentSecurityPolicy($policy);
 
 		return $template;
@@ -53,8 +54,9 @@ class PageController extends Controller {
 		$data = json_decode(file_get_contents( __DIR__ . '/config.json'), true);
 
 		$dashboard = array_map(function ($elem) {
-			$branches = $elem['branches'] ?: ['master'];
-			return new Repo($elem['repo'], $branches);
+			$branches = isset($elem['branches']) ? $elem['branches']: ['master'];
+			$badges = isset($elem['badges']) ? $elem['badges']: null;
+			return new Repo($elem['repo'], $branches, $badges);
 		}, $data);
 		return $dashboard;
 	}

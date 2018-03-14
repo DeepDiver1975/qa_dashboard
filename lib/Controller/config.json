@@ -4,25 +4,55 @@
     "branches": [
       "master",
       "stable10"
-    ]
+    ],
+    "badges": {
+      "drone": true
+    }
   },
   {
-    "repo": "user_ldap"
+    "repo": "user_ldap",
+    "badges": {
+      "drone": true,
+      "travis": true
+    }
   },
   {
-    "repo": "user_management"
+    "repo": "user_management",
+    "badges": {
+      "drone": true,
+      "travis": false
+    }
   },
   {
-    "repo": "apps"
+    "repo": "js-owncloud-client"
   },
   {
-    "repo": "android"
+    "repo": "apps",
+    "badges": {
+      "codecov": false
+    }
   },
   {
-    "repo": "client"
+    "repo": "android",
+    "badges": {
+      "codecov": false
+    }
   },
   {
-    "repo": "ios"
+    "repo": "client",
+    "branches": [
+      "master", "2.4"
+    ],
+    "badges": {
+      "codecov": false,
+      "travis": false
+    }
+  },
+  {
+    "repo": "ios",
+    "badges": {
+      "codecov": false
+    }
   },
   {
     "repo": "notes"
@@ -37,13 +67,22 @@
     "repo": "SMStorage"
   },
   {
-    "repo": "ios-library"
+    "repo": "ios-library",
+    "badges": {
+      "codecov": false
+    }
   },
   {
-    "repo": "android-library"
+    "repo": "android-library",
+    "badges": {
+      "codecov": false
+    }
   },
   {
-    "repo": "notes-iOS-App"
+    "repo": "notes-iOS-App",
+    "badges": {
+      "codecov": false
+    }
   },
   {
     "repo": "web_hooks"
@@ -118,13 +157,22 @@
     "repo": "files_primary_swift"
   },
   {
-    "repo": "OwncloudUniversal"
+    "repo": "OwncloudUniversal",
+    "badges": {
+      "codecov": false,
+      "drone": false,
+      "travis":false
+    }
   },
   {
     "repo": "user_ldap"
   },
   {
-    "repo": "configreport"
+    "repo": "configreport",
+    "badges": {
+      "drone": true,
+      "travis": false
+    }
   },
   {
     "repo": "oauth2"
@@ -169,19 +217,33 @@
     "repo": "encryption"
   },
   {
-    "repo": "files_primary_s3"
+    "repo": "files_primary_s3",
+    "badges": {
+      "drone": true,
+      "travis": false
+    }
   },
   {
     "repo": "password_policy"
   },
   {
-    "repo": "ios-sdk"
+    "repo": "ios-sdk",
+    "badges": {
+      "codecov": false
+    }
   },
   {
-    "repo": "ios-app"
+    "repo": "ios-app",
+    "badges": {
+      "codecov": false
+    }
   },
   {
-    "repo": "files_external_s3"
+    "repo": "files_external_s3",
+    "badges": {
+      "drone": true,
+      "travis": false
+    }
   },
   {
     "repo": "phoenix"
