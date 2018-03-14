@@ -7,6 +7,7 @@ class RepoState {
 	private $hasDrone = false;
 	private $hasCodeCov = true;
 	private $hasTravis = true;
+	private $hasTravisCom = false;
 
 	public function __construct($name, $branch, array $badges = null) {
 		$this->name = $name;
@@ -15,6 +16,7 @@ class RepoState {
 			$this->hasDrone = isset($badges['drone']) ? $badges['drone'] : false;
 			$this->hasCodeCov = isset($badges['codecov']) ? $badges['codecov'] : true;
 			$this->hasTravis = isset($badges['travis']) ? $badges['travis'] : true;
+			$this->hasTravisCom = isset($badges['travis-com']) ? $badges['travis-com'] : false;
 		}
 	}
 
@@ -36,6 +38,12 @@ class RepoState {
 			$status[] = [
 				'url' => "https://travis-ci.org/owncloud/{$this->name}/",
 				'badge' => "https://travis-ci.org/owncloud/{$this->name}.svg?branch={$this->branch}",
+			];
+		}
+		if ($this->hasTravisCom) {
+			$status[] = [
+				'url' => "https://travis-ci.com/owncloud/{$this->name}/",
+				'badge' => "https://travis-ci.com/owncloud/{$this->name}.svg?token=q8ZoWBCat8DFpZ2ALfXP&branch={$this->branch}",
 			];
 		}
 		if ($this->hasCodeCov) {

@@ -25,7 +25,10 @@ class PageController extends Controller {
 	 */
 	public function index() {
 
-		$dashboard = $this->readConfig();
+		$dashboard = $this->readConfig(__DIR__ . '/config.json');
+		if (\OC::$server->getUserSession()->isLoggedIn()) {
+			$dashboard = array_merge($dashboard, $this->readConfig(__DIR__ . '/enterprise.json'));
+		}
 
 		usort($dashboard , function(Repo $a, Repo $b) {
 			return $a->getDisplayName() >= $b->getDisplayName();
@@ -41,6 +44,8 @@ class PageController extends Controller {
 		$policy->addAllowedImageDomain('https://codecov.io');
 		$policy->addAllowedImageDomain('https://travis-ci.org');
 		$policy->addAllowedImageDomain('https://*.travis-ci.org');
+		$policy->addAllowedImageDomain('https://travis-ci.com');
+		$policy->addAllowedImageDomain('https://*.travis-ci.com');
 		$policy->addAllowedImageDomain('https://ci.appveyor.com');
 		$template->setContentSecurityPolicy($policy);
 
@@ -50,8 +55,8 @@ class PageController extends Controller {
 	/**
 	 * @return array
 	 */
-	public function readConfig() {
-		$data = json_decode(file_get_contents( __DIR__ . '/config.json'), true);
+	public function readConfig($fileName) {
+		$data = json_decode(file_get_contents( $fileName), true);
 
 		$dashboard = array_map(function ($elem) {
 			$branches = isset($elem['branches']) ? $elem['branches']: ['master'];

@@ -1,0 +1,20 @@
+[
+  {
+    "repo": "firewall",
+    "badges": {
+      "drone": true,
+      "travis": false,
+      "codecov": false,
+      "travis-com": true
+    }
+  },
+  {
+    "repo": "marketplace",
+    "badges": {
+      "drone": true,
+      "travis": false,
+      "codecov": false
+    }
+  }
+
+]
